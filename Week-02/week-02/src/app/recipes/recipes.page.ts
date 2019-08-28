@@ -22,4 +22,8 @@ export class RecipesPage implements OnInit {
     var obj = {id: this.recipe.id , imageUrl: this.recipe.imageUrl, ingredients: this.recipe.ingredients, title: this.recipe.title}
     console.log(obj)
   }
+
+  ionViewWillEnter(){
+    this.recipes = this.recipesService.getAllRecipes();
+  }
 }

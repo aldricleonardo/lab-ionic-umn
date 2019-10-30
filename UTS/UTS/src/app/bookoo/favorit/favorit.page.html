@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Favorit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row *ngFor="let bookoo of loadedBookoo">
+      <ion-col size="12">
+        <ion-card>
+          <ion-row>
+            <ion-col size="3">
+              <ion-thumbnail margin="1">
+                  <img src="{{ bookoo.imageUrl }}"/>
+              </ion-thumbnail>
+            </ion-col>
+            <ion-col size="7">
+                <ion-card-header>
+                  <ion-card-title>{{ bookoo.name }} </ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <p>{{ bookoo.description }}</p>
+                  <p><ion-icon name="pricetag" slot="start"></ion-icon>{{ bookoo.category }}</p>
+                </ion-card-content>
+            </ion-col>
+            <ion-col size="2">
+              <ion-row>
+                <ion-icon name="heart" style="zoom:2.0;" (click)="remove(bookoo.id)"></ion-icon>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
